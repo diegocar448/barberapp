@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/initial/initial_binding.dart';
+import '../modules/initial/initial_view.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -8,8 +10,8 @@ class AppPages {
   static final routes = [
     GetPage(
       name: Routes.INITIAL,
-      page: () => null, //InitialView(),
-      binding: null, //InitialBinding(),
-    )
+      page: () => InitialView(),
+      binding: InitialBinding(),
+    ),
   ];
 }
