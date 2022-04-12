@@ -22,7 +22,7 @@ class InitialView extends GetView<InitialController> {
               ],
             ),
             //após o time seconds ele irá redirecionar para a rota navigateAfter...
-            navigateAfterSeconds: Routes.LOGIN,
+            navigateAfterSeconds: Routes.WELCOME,
             loaderColor: Colors.transparent,
           ),
           Container(
