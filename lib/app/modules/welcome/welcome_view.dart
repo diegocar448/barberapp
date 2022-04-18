@@ -31,7 +31,7 @@ class WelcomeView extends GetView<WelcomeController> {
                 color: Get.theme.primaryColorLight,
                 textColor: Colors.black,
                 press: () {
-                  Get.toNamed('/login');
+                  Get.offAndToNamed('/login');
                 },
               ),
               RoundedButton(
@@ -39,7 +39,7 @@ class WelcomeView extends GetView<WelcomeController> {
                 color: Get.theme.primaryColorLight,
                 textColor: Colors.black,
                 press: () {
-                  Get.toNamed('/signup');
+                  Get.offAndToNamed('/signup');
                 },
               ),
             ],

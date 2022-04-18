@@ -5,6 +5,8 @@ import '../modules/initial/initial_view.dart';
 import '../modules/login/login_binding.dart';
 import '../modules/login/login_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
+import '../modules/signup/bindings/signup_binding.dart';
+import '../modules/signup/views/signup_view.dart';
 import '../modules/signup/views/signup_view.dart';
 import '../modules/welcome/welcome_binding.dart';
 import '../modules/welcome/welcome_view.dart';
