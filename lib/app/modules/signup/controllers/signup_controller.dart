@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../data/model/user_model.dart';
 import '../../../data/repository/auth_repository.dart';
+import '../../../routes/app_routes.dart';
 
 class SignupController extends GetxController {
   final repository = Get.find<AuthRepository>();
@@ -27,5 +28,9 @@ class SignupController extends GetxController {
       }
       loading.value = false;
     }
+  }
+
+  void toLogin() {
+    Get.offAndToNamed(Routes.LOGIN);
   }
 }

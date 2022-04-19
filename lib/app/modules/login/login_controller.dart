@@ -1,4 +1,5 @@
 import 'package:barberapp/app/data/repository/auth_repository.dart';
+import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -26,10 +27,15 @@ class LoginController extends GetxController {
         //Aqui armazenamos o retorno da requisição de autenticação em nosso storage getStorage
         box.write('auth', auth);
         //redirecinar para home fechando a view anterior
-        Get.offAllNamed('/home');
+        Get.offAllNamed(Routes.HOME);
+        //Get.offAllNamed('/home');
       }
 
       loading.value = false;
     }
+  }
+
+  void toRegister() {
+    Get.offAndToNamed(Routes.SIGNUP);
   }
 }

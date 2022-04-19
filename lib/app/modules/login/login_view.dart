@@ -87,7 +87,8 @@ class LoginView extends GetView<LoginController> {
                   //alternará a mensagem quando o login for igual a true ou false
                   login: true,
                   press: () {
-                    Get.offAndToNamed('/signup');
+                    //Get.offAndToNamed('/signup');
+                    controller.toRegister();
                   },
                 ),
               ],

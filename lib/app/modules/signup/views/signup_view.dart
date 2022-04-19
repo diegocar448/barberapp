@@ -7,6 +7,7 @@ import '../../../global/widgets/already_have_an_account_acheck.dart';
 import '../../../global/widgets/rounded_button.dart';
 import '../../../global/widgets/rounded_input_field.dart';
 import '../../../global/widgets/rounded_password_field.dart';
+import '../../../routes/app_routes.dart';
 import '../../login/widgets/background.dart';
 import '../controllers/signup_controller.dart';
 import '../widgets/or_divider.dart';
@@ -85,10 +86,12 @@ class SignupView extends GetView<SignupController> {
                 AlreadyHaveAnAccountCheck(
                   login: false,
                   press: () {
-                    Get.offAndToNamed('/login');
+                    controller.toLogin();
+                    //Get.offAndToNamed(Routes.LOGIN);
+                    //Get.offAndToNamed('/login');
                   },
                 ),
-                OrDivider(),
+                /* OrDivider(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -105,7 +108,7 @@ class SignupView extends GetView<SignupController> {
                       press: () {},
                     ),
                   ],
-                )
+                ) */
               ],
             ),
           ),
