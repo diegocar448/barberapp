@@ -52,7 +52,7 @@ class LoginView extends GetView<LoginController> {
                 //Aqui Obs o RoundedButton será observável
                 Obx(
                   () => Visibility(
-                    visible: controller.loading.value == false,
+                    visible: !controller.loading.value,
                     child: RoundedButton(
                       text: "ENTRAR",
                       press: () {
@@ -63,7 +63,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 Obx(
                   () => Visibility(
-                    visible: controller.loading.value == false,
+                    visible: controller.loading.value,
                     child: Container(
                       margin: EdgeInsets.symmetric(vertical: 10),
                       width: Get.width * 0.8,
@@ -75,12 +75,8 @@ class LoginView extends GetView<LoginController> {
                             vertical: 20,
                             horizontal: 40,
                           ),
-                          color: color,
-                          onPressed: press,
-                          child: Text(
-                            text,
-                            style: TextStyle(color: textColor),
-                          ),
+                          onPressed: null,
+                          child: CircularProgressIndicator(),
                         ),
                       ),
                     ),

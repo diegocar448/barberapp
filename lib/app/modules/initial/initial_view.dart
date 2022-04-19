@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:splashscreen/splashscreen.dart';
-import '../../routes/app_routes.dart';
 import 'initial_controller.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,7 +21,9 @@ class InitialView extends GetView<InitialController> {
               ],
             ),
             //após o time seconds ele irá redirecionar para a rota navigateAfter...
-            navigateAfterSeconds: Routes.WELCOME,
+            //navigateAfterSeconds: Routes.WELCOME,
+            //aqui verificamos se já há uma autenticação feita
+            navigateAfterSeconds: controller.verifyAuth(),
             loaderColor: Colors.transparent,
           ),
           Container(

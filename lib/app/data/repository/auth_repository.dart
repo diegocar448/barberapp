@@ -1,4 +1,5 @@
 import '../model/auth_model.dart';
+import '../model/user_model.dart';
 import '../provider/auth_provider.dart';
 
 class AuthRepository {
@@ -9,5 +10,11 @@ class AuthRepository {
     /* usamos o getStorage para salvar ( como uma session/cookie ) crypting os dados*/
 
     return Auth.fromJson(json);
+  }
+
+  //repository para criar no usuario acessando api externa
+  Future<User> register(String username, String password) async {
+    Map<String, dynamic> json = await apiClient.register(username, password);
+    return User.fromJson(json['user']);
   }
 }
