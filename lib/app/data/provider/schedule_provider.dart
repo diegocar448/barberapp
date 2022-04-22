@@ -15,17 +15,18 @@ class ScheduleApiClient {
   //listagem schedules provider
   getAll() async {
     try {
-      String token = await box.read('auth')['access_token'];
-      //String? token = Auth.fromJson(box.read('auth')).accessToken;
+      //String token = box.read('auth')['access_token'];
+      var token = Auth.fromJson(box.read('auth')).accessToken;
+
       var response = await http.get(
         Uri.parse(baseUrl + "/schedules"),
-        headers: {"Authorization": 'Bearer ' + token},
+        headers: {"Authorization": 'Bearer ' + token.toString()},
       );
       if (response.statusCode == 200) {
         return json.decode(response.body);
       } else {
         Get.defaultDialog(
-            title: "Erro",
+            title: "Error",
             content: Text("${json.decode(response.body)['error']}"));
         print('erro -get: ' + response.body);
       }

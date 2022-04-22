@@ -10,7 +10,6 @@ class AuthRepository {
     //Map json = await apiClient.login(username, password);
 
     /* usamos o getStorage para salvar ( como uma session/cookie ) crypting os dados*/
-
     return Auth.fromJson(json);
   }
 

@@ -2,12 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
 import '../base_url.dart';
 
 class AuthApiClient {
   final http.Client httpClient = http.Client();
+  final box = GetStorage('barberapp');
 
   Future<Map<String, dynamic>> login(String username, String password) async {
     try {

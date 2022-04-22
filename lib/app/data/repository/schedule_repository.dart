@@ -11,12 +11,17 @@ class ScheduleRepository {
   //listagem schedules repository
   getAll() async {
     List<Schedule> list = <Schedule>[];
-    //converter o Map em uma lista do scheduleModel
-    var response = await apiClient.getAll();
-    response.forEach((e) {
-      //adicionar cada map em nossa list
-      list.add(Schedule.fromJson(e));
-    });
+
+    try {
+      //converter o Map em uma lista do scheduleModel
+      var response = await apiClient.getAll();
+
+      response.forEach((e) async {
+        //adicionar cada map em nossa list
+        list.add(Schedule.fromJson(await e));
+      });
+      return list;
+    } catch (e) {}
 
     return list;
 
