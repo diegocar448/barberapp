@@ -1,4 +1,5 @@
 import 'package:barberapp/app/data/repository/auth_repository.dart';
+
 import 'package:barberapp/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import '../../data/model/auth_model.dart';
 
 class LoginController extends GetxController {
   final repository = Get.find<AuthRepository>();
+
   Auth? auth;
   final formKey = GlobalKey<FormState>();
   TextEditingController usernameCtrl = TextEditingController();
