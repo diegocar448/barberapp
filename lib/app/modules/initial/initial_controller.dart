@@ -11,7 +11,7 @@ class InitialController extends GetxController {
   var auth;
 
   //aqui verificamos se o usuario ja foi autenticado
-  String verifyAuth() {
+  verifyAuth() {
     auth = box.read('auth');
     if (auth != null) {
       return Routes.HOME;

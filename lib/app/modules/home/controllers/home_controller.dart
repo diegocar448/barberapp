@@ -1,13 +1,20 @@
+import 'package:barberapp/app/data/repository/schedule_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../data/model/schedule_model.dart';
 import '../../../global/widgets/navigation_item.dart';
 import '../../../routes/app_routes.dart';
 
 class HomeController extends GetxController {
+  //=== Essential - Inicio
   final box = GetStorage('barberapp');
+  //Aqui ele vai buscar o ScheduleRepository instanciado em nosso home_binding
+  final repository = Get.find<ScheduleRepository>();
+  //=== Essential - Final
 
+  // Button Nav Custom
   RxInt selectedIndex = 0.obs;
   Color backgroundColorNav = Colors.white;
 
@@ -21,6 +28,24 @@ class HomeController extends GetxController {
         Color.fromARGB(255, 0, 168, 168)) */
   ];
 
+  // Page 1 (Observavel)
+  //RxList<Schedule> listSchedules = [].obs;
+  RxList<Schedule> listSchedules = <Schedule>[].obs;
+
+  //responsavel por carregar a lista de agendamento
+  @override
+  void onInit() {
+    loadData();
+    super.onInit();
+  }
+
+  //Acessar o repository e vai buscar o valores e setar a lista ao clicar no page1
+  void loadData() async {
+    listSchedules.value = await repository.getAll();
+    //listSchedules.value = await repository.getAll();
+  }
+
+  //Aqui atualizamos o valor sempre que o usuario clicar no menu correspondente
   void choiceIndex(int index) {
     selectedIndex.value = index;
   }
