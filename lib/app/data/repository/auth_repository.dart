@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import '../model/auth_model.dart';
 import '../model/user_model.dart';
 import '../provider/auth_provider.dart';

@@ -7,7 +7,7 @@ class Schedule {
   String? schedulingDate;
   String? schedulingHour;
   String? hourStart;
-  Null? hourEnd;
+  String? hourEnd;
   int? userId;
   int? employeeId;
   int? serviceId;

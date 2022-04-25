@@ -17,10 +17,11 @@ class ScheduleRepository {
       var response = await apiClient.getAll();
 
       response.forEach((e) async {
-        print(Schedule.fromJson(await e).toJson());
+        //print(Schedule.fromJson(await e).toJson());
         //adicionar cada map em nossa list
         list.add(Schedule.fromJson(await e));
       });
+
       return list;
     } catch (e) {}
 

@@ -23,9 +23,6 @@ class HomeController extends GetxController {
         Icon(Icons.home), Text('Inicio'), Color.fromARGB(255, 0, 165, 202)),
     NavigationItem(Icon(Icons.search), Text('Procurar'), Colors.pinkAccent),
     NavigationItem(Icon(Icons.person_outline), Text('Perfil'), Colors.teal)
-    //NavigationItem(Icon(Icons.search), Text('Search'), Colors.cyanAccent),
-    /* NavigationItem(Icon(Icons.person_outline), Text('Profile'),
-        Color.fromARGB(255, 0, 168, 168)) */
   ];
 
   // Page 1 (Observavel)
@@ -41,8 +38,10 @@ class HomeController extends GetxController {
 
   //Acessar o repository e vai buscar o valores e setar a lista ao clicar no page1
   void loadData() async {
+    //listSchedules.assignAll(await repository.getAll());
+    //listSchedules.assignAll(await repository.getAll());
+    listSchedules.clear();
     listSchedules.value = await repository.getAll();
-    //listSchedules.value = await repository.getAll();
   }
 
   //Aqui atualizamos o valor sempre que o usuario clicar no menu correspondente
