@@ -8,10 +8,11 @@ import '../../../global/widgets/rounded_button.dart';
 import '../../../global/widgets/rounded_input_field.dart';
 import '../../../global/widgets/rounded_password_field.dart';
 import '../../../routes/app_routes.dart';
-import '../../login/widgets/background.dart';
+
 import '../controllers/signup_controller.dart';
-import '../widgets/or_divider.dart';
-import '../widgets/social_icon.dart';
+//import '../widgets/or_divider.dart';
+//import '../widgets/social_icon.dart';
+import 'widgets/background.dart';
 
 class SignupView extends GetView<SignupController> {
   @override

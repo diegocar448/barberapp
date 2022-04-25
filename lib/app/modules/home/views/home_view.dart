@@ -4,9 +4,10 @@ import 'package:get/get.dart';
 
 import '../../../global/widgets/bottom_nav_custom.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/page1.dart';
-import '../widgets/page2.dart';
-import '../widgets/page3.dart';
+
+import 'widgets/page2.dart';
+import 'widgets/page3.dart';
+import 'widgets/page1.dart';
 
 class HomeView extends GetView<HomeController> {
   @override

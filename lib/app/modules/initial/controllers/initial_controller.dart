@@ -3,8 +3,7 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../data/model/auth_model.dart';
-import '../../routes/app_routes.dart';
+import '../../../routes/app_routes.dart';
 
 class InitialController extends GetxController {
   final box = GetStorage('barberapp');

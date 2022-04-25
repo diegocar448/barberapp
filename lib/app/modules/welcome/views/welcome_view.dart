@@ -1,9 +1,9 @@
-import 'package:barberapp/app/modules/welcome/welcome_controller.dart';
+import 'package:barberapp/app/modules/welcome/controllers/welcome_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../../global/widgets/rounded_button.dart';
+import '../../../global/widgets/rounded_button.dart';
 import 'widgets/background.dart';
 
 class WelcomeView extends GetView<WelcomeController> {

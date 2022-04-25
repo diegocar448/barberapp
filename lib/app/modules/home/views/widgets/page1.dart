@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../data/model/schedule_model.dart';
-import '../controllers/home_controller.dart';
+import '../../../../data/model/schedule_model.dart';
+import '../../controllers/home_controller.dart';
 
 class Page1 extends StatelessWidget {
   final controller = Get.find<HomeController>();

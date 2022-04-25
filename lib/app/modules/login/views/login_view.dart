@@ -2,11 +2,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-import '../../global/widgets/already_have_an_account_acheck.dart';
-import '../../global/widgets/rounded_button.dart';
-import '../../global/widgets/rounded_input_field.dart';
-import '../../global/widgets/rounded_password_field.dart';
-import 'login_controller.dart';
+import '../../../global/widgets/already_have_an_account_acheck.dart';
+import '../../../global/widgets/rounded_button.dart';
+import '../../../global/widgets/rounded_input_field.dart';
+import '../../../global/widgets/rounded_password_field.dart';
+import '../controllers/login_controller.dart';
 import 'widgets/background.dart';
 
 class LoginView extends GetView<LoginController> {

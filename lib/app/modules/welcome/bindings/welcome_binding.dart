@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'welcome_controller.dart';
+import '../controllers/welcome_controller.dart';
 
 class WelcomeBinding implements Bindings {
   @override

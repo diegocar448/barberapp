@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../data/model/auth_model.dart';
+import '../../../data/model/auth_model.dart';
 
 class LoginController extends GetxController {
   final repository = Get.find<AuthRepository>();
