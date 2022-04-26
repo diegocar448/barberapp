@@ -11,7 +11,7 @@ class HomeController extends GetxController {
   //=== Essential - Inicio
   final box = GetStorage('barberapp');
   //Aqui ele vai buscar o ScheduleRepository instanciado em nosso home_binding
-  final repository = Get.find<ScheduleRepository>();
+  var repository = Get.find<ScheduleRepository>();
   //=== Essential - Final
 
   // Button Nav Custom
@@ -40,8 +40,14 @@ class HomeController extends GetxController {
   void loadData() async {
     //listSchedules.assignAll(await repository.getAll());
     //listSchedules.assignAll(await repository.getAll());
-    listSchedules.clear();
+
+    //listSchedules.clear();
     listSchedules.value = await repository.getAll();
+
+    // print("///////////////////////////////////////////////////////////////");
+    // print("Entrou");
+    // print(listSchedules);
+    // print("///////////////////////////////////////////////////////////////");
   }
 
   //Aqui atualizamos o valor sempre que o usuario clicar no menu correspondente
@@ -50,7 +56,8 @@ class HomeController extends GetxController {
   }
 
   void logout() {
-    box.erase();
+    //box.erase();
+    box.remove('auth');
     Get.offAllNamed(Routes.WELCOME);
     //Get.offAllNamed('/welcome');
   }

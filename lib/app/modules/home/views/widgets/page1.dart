@@ -15,6 +15,7 @@ class Page1 extends StatelessWidget {
             itemCount: controller.listSchedules.length,
             itemBuilder: (context, index) {
               Schedule schedule = controller.listSchedules[index];
+              //print(schedule);
               // return ListTile(
               //   title: Text("${schedule.service?.name}"),
               //   subtitle: Text("${schedule.schedulingDate}"),

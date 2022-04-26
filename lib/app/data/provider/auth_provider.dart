@@ -41,6 +41,7 @@ class AuthApiClient {
         Get.defaultDialog(
             title: "Cadastro",
             content: Text("${json.decode(response.body)['message']}"));
+        //return json.decode(response.body);
         return json.decode(response.body);
       } else {
         //snotify do getX

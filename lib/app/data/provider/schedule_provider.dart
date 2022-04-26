@@ -13,17 +13,26 @@ class ScheduleApiClient {
   final box = GetStorage('barberapp');
 
   //listagem schedules provider
+
   getAll() async {
     try {
-      //String token = box.read('auth')['access_token'];
-      var token = Auth.fromJson(box.read('auth')).accessToken;
+      //await Future.delayed(Duration(seconds: 10));
+
+      //String token = await box.read('auth')['access_token'];
+      String token = Auth.fromJson(box.read('auth')).accessToken!;
+
+      // print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+      // //print(Auth.fromJson(box.read('auth')));
+      // print(box.read('auth').runtimeType);
+      // print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
       var response = await http.get(
         Uri.parse(baseUrl + "/schedules"),
-        headers: {"Authorization": 'Bearer ' + token.toString()},
+        headers: {"Authorization": 'Bearer ' + token},
       );
       if (response.statusCode == 200) {
         return json.decode(response.body);
+        //return response.body;
       } else {
         Get.defaultDialog(
             title: "Error",
@@ -34,6 +43,6 @@ class ScheduleApiClient {
       Get.defaultDialog(title: "Error Catch", content: Text("${err}"));
       print(err);
     }
-    //return null;
+    return null;
   }
 }
