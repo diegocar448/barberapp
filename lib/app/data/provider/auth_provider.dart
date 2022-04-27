@@ -23,9 +23,7 @@ class AuthApiClient {
         Get.defaultDialog(
             title: "Login inválido!",
             content: Text("Favor verificar usuário e senha"));
-      } else {
-        print('erro -get: ' + response.body);
-      }
+      } else {}
     } catch (err) {
       print(err);
     }
@@ -52,7 +50,7 @@ class AuthApiClient {
         Get.defaultDialog(
             title: "Cadastro",
             content: Text("${json.decode(response.body)['message']}"));
-        print('erro -get: ' + response.body);
+        //print('erro -get: ' + response.body);
       }
     } catch (err) {
       Get.defaultDialog(title: "Cadastro", content: Text("${err}"));

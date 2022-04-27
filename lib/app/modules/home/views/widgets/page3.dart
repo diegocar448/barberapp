@@ -1,8 +1,11 @@
 // Imagens da pasta assets >> https://drive.google.com/drive/folders/1oM5aVAx-Q-UoddSv9yQj4uvDe5O1VZ7O?usp=sharing
 
+import 'package:barberapp/app/global/widgets/snackbar_custom.dart';
 import 'package:barberapp/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../routes/app_routes.dart';
 
 class Page3 extends StatelessWidget {
   final controller = Get.find<HomeController>();
@@ -12,7 +15,7 @@ class Page3 extends StatelessWidget {
     return Expanded(
       child: Container(
         padding: const EdgeInsets.only(top: 18, left: 10, right: 10),
-        color: Colors.teal,
+        color: Color.fromARGB(255, 141, 130, 130),
         child: ListView(
           children: <Widget>[
             CircleAvatar(
@@ -23,8 +26,11 @@ class Page3 extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  '${controller.auth!.user!.username!}',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  '${controller.auth!.user!.fullname!}',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 20.0),
                 ),
               ),
             ),
@@ -49,36 +55,40 @@ class Page3 extends StatelessWidget {
                       children: <Widget>[
                         IconButton(
                           icon: Image.asset('assets/wallet.png'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.PAYMENTS);
+                          },
                         ),
                         Text(
-                          'Carteira',
+                          'Pagamentos',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        IconButton(
-                          icon: Image.asset('assets/truck.png'),
-                          onPressed: () {},
-                        ),
-                        Text(
-                          'Entregas',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
+                    // Column(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: <Widget>[
+                    //     IconButton(
+                    //       icon: Image.asset('assets/truck.png'),
+                    //       onPressed: () {},
+                    //     ),
+                    //     Text(
+                    //       'Entregas',
+                    //       style: TextStyle(fontWeight: FontWeight.bold),
+                    //     )
+                    //   ],
+                    // ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         IconButton(
                           icon: Image.asset('assets/card.png'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.SCHEDULES);
+                          },
                         ),
                         Text(
-                          'Pagamentos',
+                          'Agendamentos',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],
@@ -88,10 +98,12 @@ class Page3 extends StatelessWidget {
                       children: <Widget>[
                         IconButton(
                           icon: Image.asset('assets/contact_us.png'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.RATINGS);
+                          },
                         ),
                         Text(
-                          'Suporte',
+                          'Avaliações',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],
@@ -112,7 +124,9 @@ class Page3 extends StatelessWidget {
                   height: 30,
                 ),
                 trailing: Icon(Icons.chevron_right),
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.SETTINGS);
+                },
               ),
             ),
             Divider(),
@@ -125,19 +139,23 @@ class Page3 extends StatelessWidget {
                 trailing: Icon(
                   Icons.chevron_right,
                 ),
+                onTap: () {
+                  SnackBarCustom.warning(
+                      "Aviso", "Recurso não disponível para essa versão.");
+                },
               ),
             ),
-            Divider(),
-            Container(
-              color: Colors.white,
-              child: ListTile(
-                title: Text('FAQ'),
-                subtitle: Text('Perguntas e respostas'),
-                leading: Image.asset('assets/faq.png'),
-                trailing: Icon(Icons.chevron_right),
-                onTap: () {},
-              ),
-            ),
+            // Divider(),
+            // Container(
+            //   color: Colors.white,
+            //   child: ListTile(
+            //     title: Text('FAQ'),
+            //     subtitle: Text('Perguntas e respostas'),
+            //     leading: Image.asset('assets/faq.png'),
+            //     trailing: Icon(Icons.chevron_right),
+            //     onTap: () {},
+            //   ),
+            // ),
             Divider(),
             Container(
               color: Colors.white,
@@ -146,7 +164,9 @@ class Page3 extends StatelessWidget {
                 subtitle: Text('Deslogar do usuário'),
                 leading: Image.asset('assets/faq.png'),
                 trailing: Icon(Icons.chevron_right),
-                onTap: () {},
+                onTap: () {
+                  controller.logout();
+                },
               ),
             ),
             Divider(),

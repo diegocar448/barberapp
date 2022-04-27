@@ -30,11 +30,11 @@ class ScheduleApiClient {
         Get.defaultDialog(
             title: "Error",
             content: Text("${json.decode(response.body)['error']}"));
-        print('erro -get: ' + response.body);
+        //print('erro -get: ' + response.body);
       }
     } catch (err) {
       Get.defaultDialog(title: "Error Catch", content: Text("${err}"));
-      print(err);
+      //print(err);
 
       //em caso de erro (token expirado) redirecionará para welcome e limpará getStorage()
       box.erase();

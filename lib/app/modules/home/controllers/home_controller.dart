@@ -48,11 +48,6 @@ class HomeController extends GetxController {
 
     //listSchedules.clear();
     listSchedules.value = await repository.getAll();
-
-    // print("///////////////////////////////////////////////////////////////");
-    // print("Entrou");
-    // print(listSchedules);
-    // print("///////////////////////////////////////////////////////////////");
   }
 
   //Aqui atualizamos o valor sempre que o usuario clicar no menu correspondente

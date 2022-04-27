@@ -16,21 +16,10 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         title: Text('Barber App'),
         centerTitle: true,
-        actions: [
-          IconButton(
-              icon: Icon(Icons.offline_bolt),
-              onPressed: () {
-                //controller.boxClear();
-                controller.logout();
-              }),
-        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Obx(
-            () => Text("${controller.selectedIndex}"),
-          ),
           Obx(
             () => Visibility(
               visible: controller.selectedIndex.value == 0,
