@@ -29,6 +29,9 @@ class HomeView extends GetView<HomeController> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Obx(
+            () => Text("${controller.selectedIndex}"),
+          ),
+          Obx(
             () => Visibility(
               visible: controller.selectedIndex.value == 0,
               child: Page1(),

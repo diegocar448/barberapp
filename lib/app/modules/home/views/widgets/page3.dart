@@ -4,9 +4,9 @@ import 'package:barberapp/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-final controller = Get.find<HomeController>();
-
 class Page3 extends StatelessWidget {
+  final controller = Get.find<HomeController>();
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
