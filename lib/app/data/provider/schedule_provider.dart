@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
+import '../../routes/app_routes.dart';
 import '../base_url.dart';
 
 class ScheduleApiClient {
@@ -13,18 +14,10 @@ class ScheduleApiClient {
   final box = GetStorage('barberapp');
 
   //listagem schedules provider
-
   getAll() async {
     try {
-      //await Future.delayed(Duration(seconds: 10));
-
       //String token = await box.read('auth')['access_token'];
       String token = Auth.fromJson(box.read('auth')).accessToken!;
-
-      // print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-      // //print(Auth.fromJson(box.read('auth')));
-      // print(box.read('auth').runtimeType);
-      // print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
       var response = await http.get(
         Uri.parse(baseUrl + "/schedules"),
@@ -42,6 +35,10 @@ class ScheduleApiClient {
     } catch (err) {
       Get.defaultDialog(title: "Error Catch", content: Text("${err}"));
       print(err);
+
+      //em caso de erro (token expirado) redirecionará para welcome e limpará getStorage()
+      box.erase();
+      Get.offAndToNamed(Routes.WELCOME);
     }
     return null;
   }

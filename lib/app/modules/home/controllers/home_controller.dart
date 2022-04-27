@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../data/model/auth_model.dart';
 import '../../../data/model/schedule_model.dart';
 import '../../../global/widgets/navigation_item.dart';
 import '../../../routes/app_routes.dart';
@@ -29,10 +30,14 @@ class HomeController extends GetxController {
   //RxList<Schedule> listSchedules = [].obs;
   RxList<Schedule> listSchedules = <Schedule>[].obs;
 
+  // Page 3
+  Auth? auth;
+
   //responsavel por carregar a lista de agendamento
   @override
   void onInit() {
     loadData();
+    auth = Auth.fromJson(box.read('auth'));
     super.onInit();
   }
 

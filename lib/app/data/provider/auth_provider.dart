@@ -19,6 +19,10 @@ class AuthApiClient {
       //Aqui verificamos o qual statusCode retorna da requisição
       if (response.statusCode == 200) {
         return json.decode(response.body);
+      } else if (response.statusCode == 401) {
+        Get.defaultDialog(
+            title: "Login inválido!",
+            content: Text("Favor verificar usuário e senha"));
       } else {
         print('erro -get: ' + response.body);
       }
