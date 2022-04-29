@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:barberapp/app/data/repository/schedule_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../data/model/auth_model.dart';
 import '../../../data/model/schedule_model.dart';
@@ -30,6 +34,13 @@ class HomeController extends GetxController {
   //RxList<Schedule> listSchedules = [].obs;
   RxList<Schedule> listSchedules = <Schedule>[].obs;
 
+  //Page 2
+  Rx<LatLng> center = LatLng(0, 0).obs;
+  LatLng? lastMapPosition;
+  //GoogleMap
+  Completer<GoogleMapController>? gmapController = Completer();
+  Position? currentLocation;
+
   // Page 3
   Auth? auth;
 
@@ -38,6 +49,7 @@ class HomeController extends GetxController {
   void onInit() {
     loadData();
     auth = Auth.fromJson(box.read('auth'));
+    getUserLocation();
     super.onInit();
   }
 
@@ -48,6 +60,27 @@ class HomeController extends GetxController {
 
     //listSchedules.clear();
     listSchedules.value = await repository.getAll();
+  }
+
+  void onMapCreated(GoogleMapController controller) {
+    gmapController?.complete(controller);
+  }
+
+  void onCameraMove(CameraPosition position) {
+    lastMapPosition = position.target;
+  }
+
+  //Aqui eu pego a latitude e longitude da posição atual
+  getUserLocation() async {
+    currentLocation = await locateUser();
+    center.value =
+        LatLng(currentLocation!.latitude, currentLocation!.longitude);
+    print('center $center');
+  }
+
+  Future<Position> locateUser() async {
+    return Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
   }
 
   //Aqui atualizamos o valor sempre que o usuario clicar no menu correspondente

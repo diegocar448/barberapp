@@ -10,7 +10,7 @@
             "type": "dart",
             "args": [
                 "--no-sound-null-safety",
-                "--enable-software-rendering",
+                //"--enable-software-rendering",
                ]
         },
         {
