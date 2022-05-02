@@ -91,8 +91,8 @@ class HomeController extends GetxController {
   //Aqui eu pego a latitude e longitude da posição atual
   getUserLocation() async {
     currentLocation = await locateUser();
-    // center.value =
-    //     LatLng(currentLocation!.latitude, currentLocation!.longitude);
+    center.value =
+        LatLng(currentLocation!.latitude, currentLocation!.longitude);
     print('center $center');
   }
 
@@ -132,6 +132,8 @@ class HomeController extends GetxController {
                       onPressed: () {
                         //fechar o Dialog
                         Get.back();
+                        //abrir a tela de company passando o Company (e) que foi clicado
+                        openCompany(e);
                       },
                       child: Text("Abrir"),
                     ),
@@ -165,6 +167,11 @@ class HomeController extends GetxController {
   //Aqui atualizamos o valor sempre que o usuario clicar no menu correspondente
   void choiceIndex(int index) {
     selectedIndex.value = index;
+  }
+
+  // Aqui ele vai para a tela de Company passando o company clicado
+  void openCompany(Company company) {
+    Get.toNamed(Routes.COMPANY, arguments: company);
   }
 
   void logout() {

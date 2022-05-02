@@ -1,3 +1,5 @@
+import 'service_model.dart';
+
 class Employee {
   int? id;
   String? firstName;
@@ -5,6 +7,7 @@ class Employee {
   String? image;
   int? companyId;
   int? userId;
+  List<Service>? services;
 
   Employee(
       {this.id,
@@ -12,7 +15,8 @@ class Employee {
       this.lastName,
       this.image,
       this.companyId,
-      this.userId});
+      this.userId,
+      this.services});
 
   Employee.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -21,16 +25,25 @@ class Employee {
     image = json['image'];
     companyId = json['company_id'];
     userId = json['user_id'];
+    if (json['services'] != null) {
+      services = <Service>[];
+      json['services'].forEach((v) {
+        services!.add(Service.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['first_name'] = this.firstName;
     data['last_name'] = this.lastName;
     data['image'] = this.image;
     data['company_id'] = this.companyId;
     data['user_id'] = this.userId;
+    if (this.services != null) {
+      data['services'] = this.services!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }

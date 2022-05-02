@@ -1,3 +1,5 @@
+import 'employee_model.dart';
+
 class Company {
   int? id;
   String? name;
@@ -7,6 +9,7 @@ class Company {
   String? phone;
   String? socialLink;
   String? image;
+  List<Employee>? employees;
 
   Company(
       {this.id,
@@ -16,7 +19,8 @@ class Company {
       this.longitude,
       this.phone,
       this.socialLink,
-      this.image});
+      this.image,
+      this.employees});
 
   Company.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -27,10 +31,17 @@ class Company {
     phone = json['phone'];
     socialLink = json['social_link'];
     image = json['image'];
+    if (json['employees'] != null) {
+      //employees = <Employee>[];
+      employees = <Employee>[];
+      json['employees'].forEach((v) {
+        employees!.add(Employee.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
     data['address'] = this.address;
@@ -39,6 +50,9 @@ class Company {
     data['phone'] = this.phone;
     data['social_link'] = this.socialLink;
     data['image'] = this.image;
+    if (this.employees != null) {
+      data['employees'] = this.employees!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }

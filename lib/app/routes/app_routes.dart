@@ -8,4 +8,6 @@ abstract class Routes {
   static const SCHEDULES = '/schedules';
   static const RATINGS = '/ratings';
   static const SETTINGS = '/settings';
+  static const COMPANY = '/company';
+  static const SERVICE = '/service';
 }
