@@ -1,2 +1,2 @@
 //const baseUrl = 'http://barbearialaravel_api.test/api';
-const baseUrl = 'https://065b-177-106-230-70.sa.ngrok.io/api';
+const baseUrl = 'https://d7d8-177-106-225-6.sa.ngrok.io/api';
