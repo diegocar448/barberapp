@@ -9,7 +9,7 @@ class SchedulesView extends GetView<SchedulesController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SchedulesView'),
+        title: Text('Agendar atendimento'),
         centerTitle: true,
       ),
       body: Center(

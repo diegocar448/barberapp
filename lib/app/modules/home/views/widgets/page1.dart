@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../data/model/schedule_model.dart';
+import '../../../../global/constants.dart';
 import '../../controllers/home_controller.dart';
 
 class Page1 extends StatelessWidget {
@@ -72,28 +73,25 @@ class Page1 extends StatelessWidget {
                         SizedBox(
                           height: 5,
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              "Avaliação",
-                              style: TextStyle(
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            /* aqui temos o range com a qtd de estrelas */
-                            Row(
-                              children: List.generate(5, (i) => i + 1).map((e) {
-                                return Icon(Icons.star);
-                              }).toList(),
-                            )
-                            // Icon(Icons.star),
-                            // Icon(Icons.star),
-                            // Icon(Icons.star),
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     Text(
+                        //       "Avaliação",
+                        //       style: TextStyle(
+                        //           color: Colors.grey,
+                        //           fontWeight: FontWeight.w500),
+                        //     ),
+                        //     SizedBox(
+                        //       width: 5,
+                        //     ),
+                        //     /* aqui temos o range com a qtd de estrelas */
+                        //     Row(
+                        //       children: List.generate(5, (i) => i + 1).map((e) {
+                        //         return Icon(Icons.star);
+                        //       }).toList(),
+                        //     )
+                        //   ],
+                        // ),
                         SizedBox(
                           height: 5,
                         ),
@@ -121,7 +119,7 @@ class Page1 extends StatelessWidget {
                               child: Container(),
                             ),
                             Text(
-                              "R\$50,00",
+                              "R\$ ${formatcurrency.format(schedule.service?.cost)}",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../data/model/employee_model.dart';
+import '../../../data/model/service_model.dart';
 import '../controllers/company_controller.dart';
-import 'widgets/employee_card.dart';
+import 'widgets/service_card.dart';
 
 class CompanyView extends GetView<CompanyController> {
   @override
@@ -95,7 +95,7 @@ class CompanyView extends GetView<CompanyController> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "Selecione um Funcionário",
+                            "Selecione um Serviço",
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.w700),
                           ),
@@ -106,11 +106,11 @@ class CompanyView extends GetView<CompanyController> {
                 ),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: controller.company.employees!.length,
+                    itemCount: controller.company.services!.length,
                     itemBuilder: (context, index) {
-                      Employee employee = controller.company.employees![index];
-                      print(employee.toJson());
-                      return EmployeeCard(employee);
+                      Service service = controller.company.services![index];
+                      print(service.toJson());
+                      return ServiceCard(service);
                     },
                   ),
                 ),

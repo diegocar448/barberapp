@@ -1,4 +1,4 @@
-import 'employee_model.dart';
+import 'service_model.dart';
 
 class Company {
   int? id;
@@ -9,7 +9,7 @@ class Company {
   String? phone;
   String? socialLink;
   String? image;
-  List<Employee>? employees;
+  List<Service>? services;
 
   Company(
       {this.id,
@@ -20,7 +20,7 @@ class Company {
       this.phone,
       this.socialLink,
       this.image,
-      this.employees});
+      this.services});
 
   Company.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -31,17 +31,16 @@ class Company {
     phone = json['phone'];
     socialLink = json['social_link'];
     image = json['image'];
-    if (json['employees'] != null) {
-      //employees = <Employee>[];
-      employees = <Employee>[];
-      json['employees'].forEach((v) {
-        employees!.add(Employee.fromJson(v));
+    if (json['services'] != null) {
+      services = <Service>[];
+      json['services'].forEach((v) {
+        services!.add(new Service.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
     data['address'] = this.address;
@@ -50,8 +49,8 @@ class Company {
     data['phone'] = this.phone;
     data['social_link'] = this.socialLink;
     data['image'] = this.image;
-    if (this.employees != null) {
-      data['employees'] = this.employees!.map((v) => v.toJson()).toList();
+    if (this.services != null) {
+      data['services'] = this.services!.map((v) => v.toJson()).toList();
     }
     return data;
   }

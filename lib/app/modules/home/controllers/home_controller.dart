@@ -124,7 +124,8 @@ class HomeController extends GetxController {
               onTap: () {
                 Get.defaultDialog(
                   title: "${e.name}",
-                  content: Text("Telefone: ${e.phone}\nLink: ${e.socialLink}"),
+                  content: Text(
+                      "Telefone: ${e.phone ?? '...'}\nLink: ${e.socialLink ?? '...'}"),
                   actions: [
                     FlatButton(
                       color: Colors.blue,

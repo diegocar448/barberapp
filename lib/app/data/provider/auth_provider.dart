@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
-import '../base_url.dart';
+import '../../global/constants.dart';
 
 class AuthApiClient {
   final http.Client httpClient = http.Client();
