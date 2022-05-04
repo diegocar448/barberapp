@@ -9,7 +9,7 @@ class Auth {
   Auth({this.user, this.accessToken, this.tokenType, this.expiresIn});
 
   Auth.fromJson(Map<String, dynamic> json) {
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
+    user = json['user'] != "" ? User.fromJson(json['user']) : null;
     accessToken = json['access_token'];
     tokenType = json['token_type'];
     expiresIn = json['expires_in'];

@@ -12,8 +12,8 @@ class CompanyController extends GetxController {
   //   Get.toNamed(Routes.SERVICE, arguments: services);
   // }
 
-  //Abrir a lista de agendamentos
+  //Abrir a lista de agendamentos, passando o serviço selecionado como argumento
   void createScheduling(Service service) {
-    Get.toNamed(Routes.SCHEDULES);
+    Get.toNamed(Routes.SCHEDULES, arguments: service);
   }
 }

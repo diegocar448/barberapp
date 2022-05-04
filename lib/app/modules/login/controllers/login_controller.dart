@@ -28,6 +28,7 @@ class LoginController extends GetxController {
         loading.value = true;
 
         var auth = await repository.login(usernameCtrl.text, passwordCtrl.text);
+
         loading.value = false;
 
         if (auth != null) {
@@ -39,6 +40,7 @@ class LoginController extends GetxController {
           Get.offAllNamed(Routes.HOME);
           //Get.offAllNamed('/home');
         }
+
         loading.value = false;
       }
     } catch (e) {

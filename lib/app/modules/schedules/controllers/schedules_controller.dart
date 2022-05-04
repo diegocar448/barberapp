@@ -1,20 +1,20 @@
+import 'package:barberapp/app/data/model/employee_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/model/service_model.dart';
+
 class SchedulesController extends GetxController {
-  //TODO: Implement SchedulesController
+  Service? service = Get.arguments;
+  DateTime? datePicked;
+  TimeOfDay? timePicked;
+  TextEditingController? dateController = TextEditingController();
+  TextEditingController? timeController = TextEditingController();
+  Employee? employee;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  //Abrir Data/Hora
+  void openCalendar() {}
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  //Abrir Horario
+  void openClock() {}
 }
