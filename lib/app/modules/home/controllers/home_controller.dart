@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:barberapp/app/data/repository/schedule_repository.dart';
 import 'package:flutter/material.dart';
@@ -68,12 +69,10 @@ class HomeController extends GetxController {
   //Acessar o repository e vai buscar o valores e setar a lista ao clicar no page1
   void loadData() async {
     //listSchedules.assignAll(await repository.getAll());
+
     listSchedules.assignAll(await scheduleRepo.getAll());
     //chamamos a lista dentro do loadData
     rebuildMarkers();
-    print("/////////////////////////////////////////////////////////");
-    print("LOAD DATA ENTROU!");
-    print("/////////////////////////////////////////////////////////");
 
     //listSchedules.clear();
     // listSchedules.value = await scheduleRepo.getAll();
@@ -171,8 +170,14 @@ class HomeController extends GetxController {
   }
 
   // Aqui ele vai para a tela de Company passando o company clicado
-  void openCompany(Company company) {
-    Get.toNamed(Routes.COMPANY, arguments: company);
+  void openCompany(Company company) async {
+    var result = await Get.toNamed(Routes.COMPANY, arguments: company);
+
+    //se criar o registro no BD sem erros carregar a pagina1 posição 0 e fazer a requisição da listagem de agendamentos
+    if (result != null) {
+      selectedIndex.value = 0;
+      loadData();
+    }
   }
 
   void logout() {

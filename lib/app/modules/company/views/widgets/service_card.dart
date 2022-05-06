@@ -10,6 +10,7 @@ import '../../../../data/model/service_model.dart';
 class ServiceCard extends StatelessWidget {
   final controller = Get.find<CompanyController>();
   final Service service;
+
   ServiceCard(this.service);
 
   @override

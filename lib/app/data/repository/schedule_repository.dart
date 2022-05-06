@@ -1,8 +1,10 @@
-import 'dart:convert';
+import 'dart:developer';
 
-import 'package:barberapp/app/data/model/schedule_model.dart';
 import 'package:get/get.dart';
 
+import '../model/service_model.dart';
+import '../model/employee_model.dart';
+import '../model/schedule_model.dart';
 import '../provider/schedule_provider.dart';
 
 class ScheduleRepository {
@@ -19,5 +21,11 @@ class ScheduleRepository {
       });
     }
     return list;
+  }
+
+  add(String date, String time, Employee employee, Service service) async {
+    return Schedule.fromJson(
+      await apiClient.add(date, time, employee, service),
+    );
   }
 }

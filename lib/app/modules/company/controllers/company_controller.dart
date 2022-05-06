@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../../data/model/company_model.dart';
+import '../../../data/model/employee_model.dart';
 import '../../../data/model/service_model.dart';
 import '../../../routes/app_routes.dart';
 
@@ -13,7 +14,10 @@ class CompanyController extends GetxController {
   // }
 
   //Abrir a lista de agendamentos, passando o serviço selecionado como argumento
-  void createScheduling(Service service) {
-    Get.toNamed(Routes.SCHEDULES, arguments: service);
+  void createScheduling(Service service) async {
+    var result = await Get.toNamed(Routes.SCHEDULES, arguments: service);
+    if (result != null) {
+      Get.back(result: "OK");
+    }
   }
 }
