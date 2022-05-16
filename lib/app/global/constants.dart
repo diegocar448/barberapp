@@ -6,4 +6,4 @@ import 'package:intl/intl.dart';
 final formatcurrency = NumberFormat('#,##0.00', 'pt_BR');
 
 //url da api
-const baseUrl = 'https://ca81-179-126-57-234.sa.ngrok.io/api';
+const baseUrl = 'https://7a48-179-126-71-148.sa.ngrok.io/api';

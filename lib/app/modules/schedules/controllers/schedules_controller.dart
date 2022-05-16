@@ -8,6 +8,7 @@ import '../../../data/repository/schedule_repository.dart';
 import '../../../routes/app_routes.dart';
 
 class SchedulesController extends GetxController {
+  //usamos esse sujeiro em nossas validações no formulario
   final formKey = GlobalKey<FormState>();
   Service? service = Get.arguments;
   final repository = Get.find<ScheduleRepository>();
@@ -15,7 +16,7 @@ class SchedulesController extends GetxController {
   TimeOfDay? timePicked;
   final dateController = TextEditingController();
   final timeController = TextEditingController();
-  Employee? employee;
+  Employee? employee = Employee();
 
   //Abrir Data/Hora do android/ios
   void openCalendar() async {
@@ -55,9 +56,10 @@ class SchedulesController extends GetxController {
   }
 
   void onsave() async {
+    //aqui adicionamos a validação dos campos
     if (formKey.currentState!.validate()) {
       var response = await repository.add(
-          dateController.text, timeController.text, Employee(), service!);
+          dateController.text, timeController.text, employee!, service!);
       if (response != null) {
         Get.back(result: "OK");
       }

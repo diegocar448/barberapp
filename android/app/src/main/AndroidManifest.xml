@@ -1,16 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.barberapp">
-    <!-- user-permission são tags de permissions -->
-    <uses-permission android:name="android.permission.INTERNET"/>    
+
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
    <application
         android:label="barberapp"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -34,8 +34,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDPZ1UKvWvXBRlLIwf0f8WJ8p8_37K32fM" />
+
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyAKpp6T7bUyZfdMFm5EJdqg2Yp4P4T58zI"/>
     </application>
 </manifest>

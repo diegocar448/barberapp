@@ -175,6 +175,7 @@ class HomeController extends GetxController {
 
     //se criar o registro no BD sem erros carregar a pagina1 posição 0 e fazer a requisição da listagem de agendamentos
     if (result != null) {
+      //Aqui ele seleciona a primeira aba por default
       selectedIndex.value = 0;
       loadData();
     }
