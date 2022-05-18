@@ -22,28 +22,21 @@ class LoginController extends GetxController {
   RxBool loading = false.obs;
 
   void login() async {
-    try {
-      //entrará aqui após passar pela validação no front-end
-      if (formKey.currentState!.validate()) {
-        loading.value = true;
+    //entrará aqui após passar pela validação no front-end
+    if (formKey.currentState!.validate()) {
+      loading.value = true;
 
-        var auth = await repository.login(usernameCtrl.text, passwordCtrl.text);
+      var auth = await repository.login(usernameCtrl.text, passwordCtrl.text);
 
-        loading.value = false;
+      loading.value = false;
 
-        if (auth != null) {
-          //if (!auth.isNull) {
-          //Aqui armazenamos o retorno da requisição de autenticação em nosso storage getStorage
-          await box.write('auth', await auth.toJson());
-
-          //redirecinar para home fechando a view anterior
-          Get.offAllNamed(Routes.HOME);
-          //Get.offAllNamed('/home');
-        }
-
-        loading.value = false;
+      if (auth != null) {
+        //Aqui armazenamos o retorno da requisição de autenticação em nosso storage getStorage
+        await box.write('auth', await auth.toJson());
+        //redirecinar para home fechando a view anterior
+        Get.offAllNamed(Routes.HOME);
       }
-    } catch (e) {
+
       loading.value = false;
     }
   }

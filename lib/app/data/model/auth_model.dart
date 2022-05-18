@@ -25,4 +25,7 @@ class Auth {
     data['expires_in'] = this.expiresIn;
     return data;
   }
+
+  static List<Auth> listFromJson(list) =>
+      List<Auth>.from(list.map((x) => Auth.fromJson(x)));
 }

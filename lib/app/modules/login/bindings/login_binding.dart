@@ -11,5 +11,8 @@ class LoginBinding implements Bindings {
     Get.lazyPut<LoginController>(() => LoginController());
     Get.lazyPut<AuthRepository>(() => AuthRepository());
     Get.lazyPut<AuthApiClient>(() => AuthApiClient());
+    // Get.put<LoginController>(LoginController());
+    // Get.put<AuthRepository>(AuthRepository());
+    // Get.put<AuthApiClient>(AuthApiClient());
   }
 }

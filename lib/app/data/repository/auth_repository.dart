@@ -11,7 +11,7 @@ class AuthRepository {
 
   Future<Auth> login(String username, String password) async {
     Map<String, dynamic> json = await apiClient.login(username, password);
-    print(json);
+
     User.fromJson(json['user']);
     /* usamos o getStorage para salvar ( como uma session/cookie ) crypting os dados*/
     return Auth.fromJson(json);

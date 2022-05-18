@@ -70,7 +70,7 @@ class ScheduleApiClient {
         body: {
           "scheduling_date": "$newDate",
           "user_id": "$userId",
-          "employee_id": "${employee?.id ?? ''}",
+          "employee_id": "${employee.id ?? ''}",
           "service_id": "${service.id}",
         },
         headers: {"Authorization": 'Bearer ' + token},
