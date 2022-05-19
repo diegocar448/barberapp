@@ -17,6 +17,10 @@ class SchedulesController extends GetxController {
   final dateController = TextEditingController();
   final timeController = TextEditingController();
   Employee? employee = Employee();
+  RangeValues? values = RangeValues(7, 20);
+  RangeLabels? labels = RangeLabels('7', '20');
+  RxDouble start = 7.0.obs;
+  RxDouble end = 20.0.obs;
 
   //Abrir Data/Hora do android/ios
   void openCalendar() async {
@@ -59,7 +63,11 @@ class SchedulesController extends GetxController {
     //aqui adicionamos a validação dos campos
     if (formKey.currentState!.validate()) {
       var response = await repository.add(
-          dateController.text, timeController.text, employee!, service!);
+          dateController.text,
+          start.value.toStringAsFixed(0),
+          end.value.toStringAsFixed(0),
+          employee!,
+          service!);
       if (response != null) {
         Get.back(result: "OK");
       }

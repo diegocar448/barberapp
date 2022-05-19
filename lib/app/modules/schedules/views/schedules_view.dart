@@ -65,25 +65,52 @@ class SchedulesView extends GetView<SchedulesController> {
                 },
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: TextFormField(
-                controller: controller.timeController,
-                showCursor: true,
-                readOnly: true,
-                decoration: InputDecoration(
-                  labelText: 'Hora Prevista',
-                  icon: Icon(Icons.access_time),
-                ),
-                onTap: controller.openClock,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Campo requerido.';
-                  }
-                  return null;
-                },
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.all(8.0),
+            //   child: TextFormField(
+            //     controller: controller.timeController,
+            //     showCursor: true,
+            //     readOnly: true,
+            //     decoration: InputDecoration(
+            //       labelText: 'Hora Prevista',
+            //       icon: Icon(Icons.access_time),
+            //     ),
+            //     onTap: controller.openClock,
+            //     validator: (value) {
+            //       if (value!.isEmpty) {
+            //         return 'Campo requerido.';
+            //       }
+            //       return null;
+            //     },
+            //   ),
+            // ),
+
+            Obx(() => Container(
+                padding: EdgeInsets.symmetric(vertical: 15),
+                child: Center(
+                  child: Text(
+                    "Escolha o intervalo que deseja ser atendido. \n\nInicio: ${controller.start.value.toStringAsFixed(0)}h Término: ${controller.end.value.toStringAsFixed(0)}h",
+                    textAlign: TextAlign.center,
+                  ),
+                ))),
+            /* Widget que traz o range */
+            Obx(() => RangeSlider(
+                divisions: 13,
+                activeColor: Colors.red[700],
+                inactiveColor: Colors.red[300],
+                min: 7.0,
+                max: 20.0,
+                values:
+                    RangeValues(controller.start.value, controller.end.value),
+                labels: RangeLabels(
+                    '${controller.start.value.toStringAsFixed(0)}h',
+                    '${controller.end.value.toStringAsFixed(0)}h'),
+                onChanged: (value) {
+                  print("START: ${value.start}, End: ${value.end}");
+                  //Aqui setamos no controller o estado de start e end
+                  controller.start.value = value.start;
+                  controller.end.value = value.end;
+                })),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(

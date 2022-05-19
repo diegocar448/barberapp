@@ -23,9 +23,10 @@ class ScheduleRepository {
     return list;
   }
 
-  add(String date, String time, Employee employee, Service service) async {
+  add(String date, String hour_start, String hour_end, Employee employee,
+      Service service) async {
     return Schedule.fromJson(
-      await apiClient.add(date, time, employee, service),
+      await apiClient.add(date, hour_start, hour_end, employee, service),
     );
   }
 }

@@ -61,7 +61,7 @@ class Page1 extends StatelessWidget {
                               width: 5,
                             ),
                             Text(
-                              "${DateFormat('dd/MM/yyyy HH:mm').format(DateTime.parse(schedule.schedulingDate!))}",
+                              "${DateFormat('dd/MM/yyyy').format(DateTime.parse(schedule.schedulingDate!))} - \n Previsão: ${schedule.hourStart != null ? schedule.hourStart.toString() + 'h' : ''} ~ ${schedule.hourEnd != null ? schedule.hourEnd.toString() + 'h' : ''}",
                               //"teste",
                               style: TextStyle(
                                   color: Colors.black,

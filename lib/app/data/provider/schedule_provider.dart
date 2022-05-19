@@ -47,7 +47,8 @@ class ScheduleApiClient {
   }
 
   //metodo store ScheduleController
-  add(String date, String time, Employee employee, Service service) async {
+  add(String date, String hour_start, String hour_end, Employee employee,
+      Service service) async {
     try {
       //String token = await box.read('auth')['access_token'];
       Auth auth = Auth.fromJson(box.read('auth'));
@@ -62,13 +63,14 @@ class ScheduleApiClient {
           '-' +
           dt[0] +
           ' ' +
-          time +
-          ':00'; //enviando segundos zerado
+          '00:00:00'; //enviando segundos zerado
 
       var response = await http.post(
         Uri.parse(baseUrl + "/schedules"),
         body: {
           "scheduling_date": "$newDate",
+          "hour_start": "$hour_start",
+          "hour_end": "$hour_end",
           "user_id": "$userId",
           "employee_id": "${employee.id ?? ''}",
           "service_id": "${service.id}",
