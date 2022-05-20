@@ -24,7 +24,8 @@ class Page3 extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(
+                    left: 8.0, right: 8.0, bottom: 25.0, top: 8.0),
                 child: Text(
                   '${controller.auth!.user!.fullname!}',
                   style: TextStyle(
@@ -34,81 +35,84 @@ class Page3 extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 16.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                  bottomLeft: Radius.circular(8),
-                  bottomRight: Radius.circular(8),
+            Visibility(
+              visible: controller.auth!.user!.employees!.length > 00,
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 16.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8),
+                    topRight: Radius.circular(8),
+                    bottomLeft: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
+                  ),
+                  color: Colors.white,
                 ),
-                color: Colors.white,
-              ),
-              height: 150,
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        IconButton(
-                          icon: Image.asset('assets/wallet.png'),
-                          onPressed: () {
-                            Get.toNamed(Routes.PAYMENTS);
-                          },
-                        ),
-                        Text(
-                          'Pagamentos',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    // Column(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: <Widget>[
-                    //     IconButton(
-                    //       icon: Image.asset('assets/truck.png'),
-                    //       onPressed: () {},
-                    //     ),
-                    //     Text(
-                    //       'Entregas',
-                    //       style: TextStyle(fontWeight: FontWeight.bold),
-                    //     )
-                    //   ],
-                    // ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        IconButton(
-                          icon: Image.asset('assets/card.png'),
-                          onPressed: () {
-                            Get.toNamed(Routes.SCHEDULES);
-                          },
-                        ),
-                        Text(
-                          'Agendamentos',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        IconButton(
-                          icon: Image.asset('assets/contact_us.png'),
-                          onPressed: () {
-                            Get.toNamed(Routes.RATINGS);
-                          },
-                        ),
-                        Text(
-                          'Avaliações',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                  ],
+                height: 150,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          IconButton(
+                            icon: Image.asset('assets/wallet.png'),
+                            onPressed: () {
+                              Get.toNamed(Routes.PAYMENTS);
+                            },
+                          ),
+                          Text(
+                            'Pagamentos',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      // Column(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: <Widget>[
+                      //     IconButton(
+                      //       icon: Image.asset('assets/truck.png'),
+                      //       onPressed: () {},
+                      //     ),
+                      //     Text(
+                      //       'Entregas',
+                      //       style: TextStyle(fontWeight: FontWeight.bold),
+                      //     )
+                      //   ],
+                      // ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          IconButton(
+                            icon: Image.asset('assets/card.png'),
+                            onPressed: () {
+                              Get.toNamed(Routes.SCHEDULES);
+                            },
+                          ),
+                          Text(
+                            'Agendamentos',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          IconButton(
+                            icon: Image.asset('assets/contact_us.png'),
+                            onPressed: () {
+                              Get.toNamed(Routes.RATINGS);
+                            },
+                          ),
+                          Text(
+                            'Avaliações',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

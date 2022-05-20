@@ -23,7 +23,8 @@ class User {
     image = json['image'];
     activated = json['activated'];
     if (json['employees'] != null) {
-      employees = [];
+      //employees = [];
+      employees = <Employee>[];
       json['employees'].forEach((v) {
         employees!.add(new Employee.fromJson(v));
       });

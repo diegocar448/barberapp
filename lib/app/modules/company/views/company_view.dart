@@ -109,7 +109,6 @@ class CompanyView extends GetView<CompanyController> {
                     itemCount: controller.company.services!.length,
                     itemBuilder: (context, index) {
                       Service service = controller.company.services![index];
-                      print(service.toJson());
                       return ServiceCard(service);
                     },
                   ),

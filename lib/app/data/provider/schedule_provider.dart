@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 
 import '../../routes/app_routes.dart';
 import '../../global/constants.dart';
-import '../model/schedule_model.dart';
+
 import '../model/service_model.dart';
 
 class ScheduleApiClient {
@@ -47,7 +47,7 @@ class ScheduleApiClient {
   }
 
   //metodo store ScheduleController
-  add(String date, String hour_start, String hour_end, Employee employee,
+  add(String date, String hourStart, String hourEnd, Employee employee,
       Service service) async {
     try {
       //String token = await box.read('auth')['access_token'];
@@ -69,8 +69,8 @@ class ScheduleApiClient {
         Uri.parse(baseUrl + "/schedules"),
         body: {
           "scheduling_date": "$newDate",
-          "hour_start": "$hour_start",
-          "hour_end": "$hour_end",
+          "hour_start": "$hourStart",
+          "hour_end": "$hourEnd",
           "user_id": "$userId",
           "employee_id": "${employee.id ?? ''}",
           "service_id": "${service.id}",

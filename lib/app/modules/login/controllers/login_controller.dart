@@ -26,16 +26,17 @@ class LoginController extends GetxController {
     if (formKey.currentState!.validate()) {
       loading.value = true;
 
-      var auth = await repository.login(usernameCtrl.text, passwordCtrl.text);
-
-      loading.value = false;
-
-      if (auth != null) {
-        //Aqui armazenamos o retorno da requisição de autenticação em nosso storage getStorage
-        await box.write('auth', await auth.toJson());
-        //redirecinar para home fechando a view anterior
-        Get.offAllNamed(Routes.HOME);
-      }
+      var auth = await repository
+          .login(usernameCtrl.text, passwordCtrl.text)
+          .then((auth) async {
+        if (auth != null) {
+          //Aqui armazenamos o retorno da requisição de autenticação em nosso storage getStorage
+          await box.write('auth', await auth.toJson());
+          //redirecinar para home fechando a view anterior
+          Get.offAllNamed(Routes.HOME);
+        }
+        loading.value = false;
+      }).whenComplete(() => loading.value = false);
 
       loading.value = false;
     }

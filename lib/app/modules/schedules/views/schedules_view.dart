@@ -22,6 +22,8 @@ class SchedulesView extends GetView<SchedulesController> {
         child: ListView(
           padding: EdgeInsets.all(10),
           children: <Widget>[
+            Text("${controller.employee!.toJson()}"),
+            //Text("${controller.}"),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Card(

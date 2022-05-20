@@ -16,18 +16,19 @@ class AuthApiClient {
       var response = await http.post(Uri.parse(baseUrl + "/login"),
           body: {"username": username, "password": password});
 
-      print("///////////////////////////////////////////");
-      print(response);
-      print(response.body);
-      print("///////////////////////////////////////////");
-
       //Aqui verificamos o qual statusCode retorna da requisição
       if (response.statusCode == 200) {
         return json.decode(response.body);
       } else if (response.statusCode == 401) {
+        print("//////////////////////////////////////");
+        print(response.statusCode);
+        print("//////////////////////////////////////");
+
         Get.defaultDialog(
             title: "Login inválido!",
             content: Text("Favor verificar usuário e senha"));
+
+        return json.decode(response.body);
       } else {}
     } catch (err) {
       print(err);
