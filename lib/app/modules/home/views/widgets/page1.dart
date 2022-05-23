@@ -11,12 +11,12 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Obx(
-        () => ListView.builder(
-          itemCount: controller.listSchedules.length,
+    return controller.obx(
+      (list) => Expanded(
+        child: ListView.builder(
+          itemCount: list.length,
           itemBuilder: (context, index) {
-            Schedule schedule = controller.listSchedules[index];
+            Schedule schedule = list[index];
             //print(schedule);
             // return ListTile(
             //   title: Text("${schedule.service?.name}"),
@@ -134,6 +134,17 @@ class Page1 extends StatelessWidget {
               ],
             );
           },
+        ),
+      ),
+      //entrará aqui quando a função change for um erro
+      onError: (err) => Expanded(
+        child: Center(
+          child: Text('$err'),
+        ),
+      ),
+      onEmpty: Expanded(
+        child: Center(
+          child: Text('Nenhum agendamento realizado.'),
         ),
       ),
     );

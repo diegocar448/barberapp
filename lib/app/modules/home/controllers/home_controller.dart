@@ -15,7 +15,7 @@ import '../../../data/repository/company_repository.dart';
 import '../../../global/widgets/navigation_item.dart';
 import '../../../routes/app_routes.dart';
 
-class HomeController extends GetxController {
+class HomeController extends GetxController with StateMixin {
   //=== Essential - Inicio
   final box = GetStorage('barberapp');
   //Aqui ele vai buscar o ScheduleRepository instanciado em nosso home_binding
@@ -70,13 +70,24 @@ class HomeController extends GetxController {
   void loadData() async {
     //listSchedules.assignAll(await repository.getAll());
 
-    listSchedules.assignAll(await scheduleRepo.getAll());
+    // comentado em 23/05/2022
+    //listSchedules.assignAll(await scheduleRepo.getAll());
+
+    await scheduleRepo.getAll().then((value) {
+      //no segundo parâmetro de change() para o status de nossa requisição
+
+      if (value.length > 0) {
+        change(value, status: RxStatus.success());
+      } else {
+        change(null, status: RxStatus.empty());
+      }
+    }, onError: (err) {
+      change(null, status: RxStatus.error('Houve um erro na requisição.'));
+    });
+
     //chamamos a lista dentro do loadData
     rebuildMarkers();
-
-    //listSchedules.clear();
-    // listSchedules.value = await scheduleRepo.getAll();
-    // listCompanies.value = await companyRepo.getAll();
+    print('loadData');
   }
 
   void onMapCreated(GoogleMapController controller) async {

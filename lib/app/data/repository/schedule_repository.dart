@@ -11,7 +11,7 @@ class ScheduleRepository {
   final ScheduleApiClient apiClient = Get.find<ScheduleApiClient>();
 
   //listagem schedules repository
-  getAll() async {
+  Future<List<Schedule>> getAll() async {
     List<Schedule> list = <Schedule>[];
     //converter o Map em uma lista do scheduleModel
     var response = await apiClient.getAll();
