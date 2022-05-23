@@ -10,4 +10,5 @@ abstract class Routes {
   static const SETTINGS = '/settings';
   static const COMPANY = '/company';
   static const SERVICE = '/service';
+  static const EMPLOYEE_SCHEDULES = '/employee-schedules';
 }

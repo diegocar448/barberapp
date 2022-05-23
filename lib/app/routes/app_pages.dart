@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/company/bindings/company_binding.dart';
 import '../modules/company/views/company_view.dart';
+import '../modules/employee_schedules/bindings/employee_schedules_binding.dart';
+import '../modules/employee_schedules/views/employee_schedules_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/initial/bindings/initial_binding.dart';
@@ -84,6 +86,11 @@ class AppPages {
       name: Routes.SERVICE,
       page: () => ServiceView(),
       binding: ServiceBinding(),
+    ),
+    GetPage(
+      name: Routes.EMPLOYEE_SCHEDULES,
+      page: () => EmployeeSchedulesView(),
+      binding: EmployeeSchedulesBinding(),
     ),
   ];
 }
